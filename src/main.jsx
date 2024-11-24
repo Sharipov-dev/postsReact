@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import App from './routes/PostsList';
+import App, { loader as postsLoader } from './routes/PostsList';
 import NewPost from './routes/NewPost';
 import RootLayout from './routes/RootLayout';
 import PostsList from './routes/PostsList';
@@ -15,6 +15,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <PostsList />,
+        loader: postsLoader,
         children: [{ path: '/create-post', element: <NewPost /> }],
       },
     ],
